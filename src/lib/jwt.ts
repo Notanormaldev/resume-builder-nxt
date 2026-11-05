@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+
 import jwt from 'jsonwebtoken'
 import { JWTpaylod } from "@/types/usertypes";
 
