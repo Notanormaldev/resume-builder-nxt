@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-let connectdb=async()=>{
+export let connectdb=async()=>{
     try {
         await mongoose.connect(process.env.MONGO_URI!)
     } catch (error) {
