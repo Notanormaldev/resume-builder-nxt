@@ -55,6 +55,9 @@ const resumeschema = new mongoose.Schema<IResume>({
               certifications:{
                 type:[String],
                 default:[]
+              },acheivements:{
+                type:[String],
+                default:[]
               }
 
 
