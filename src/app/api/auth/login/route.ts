@@ -43,7 +43,7 @@ export async function POST(req:NextRequest){
      let token = genratetokenjwt({userId:isexisted._id.toString()})
      
      let response = NextResponse.json<Apiresponse>({
-       success:true , message:"user register successfully",data:{
+       success:true , message:"user login successfully",data:{
          user:{
            _id:isexisted._id,
            name:isexisted.name,
