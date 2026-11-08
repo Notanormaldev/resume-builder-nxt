@@ -6,9 +6,9 @@ const ai = new GoogleGenAI({
 
 export async function genaires(prompt:string) {
     const interaction = await ai.interactions.create({
-    model: "gemini-3.8-flash",
+    model: "gemini-3.5-flash",
     input: prompt,
 });
-console.log(interaction.output_text);
+return interaction.output_text;
 }
 
