@@ -4,7 +4,7 @@ import { IResume } from "@/types/resume.type";
 
 const resumeschema = new mongoose.Schema<IResume>({
           user_id:{ 
-            toUpperCaseype:mongoose.Types.ObjectId,
+            type:mongoose.Types.ObjectId,
             ref:"users",
             require:true
           },

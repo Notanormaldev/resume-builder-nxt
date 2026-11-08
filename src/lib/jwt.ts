@@ -11,5 +11,5 @@ export const genratetokenjwt=(payload:JWTpaylod):string=>{
 
 
 export const verifytoken=(token:string):any=>{
-    return jwt.verify(token,process.env.JET_SECRET!)
+    return jwt.verify(token,process.env.JWT_SECRET!)
 }

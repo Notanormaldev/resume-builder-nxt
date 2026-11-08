@@ -42,4 +42,4 @@ userSchema.methods.comparePass = function (candidatePassword:string) :boolean{
    return bcrypt.compareSync(candidatePassword, this.password)
 }
 
-export const usermodel = mongoose.model("Users",userSchema)
+export const usermodel = mongoose.model("users",userSchema)
