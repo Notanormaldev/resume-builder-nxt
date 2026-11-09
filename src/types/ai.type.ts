@@ -23,3 +23,8 @@ export interface genexpdes{
     yoe:number,
     jobrole:string
 }
+
+
+export interface impcontent{
+    content:string
+}
