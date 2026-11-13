@@ -44,7 +44,13 @@ Each strength and improvement must be under 20 words, specific and actionable. N
 
     const result = await genaires(prompt);
 
-    const atsdata = result;
+    let atsdata: any = result;
+    try {
+      const cleaned = (result || "").replace(/```json|```/g, "").trim();
+      atsdata = JSON.parse(cleaned);
+    } catch {
+      atsdata = { raw: result };
+    }
 
     return NextResponse.json<Apiresponse>(
       {

@@ -6,19 +6,17 @@ import { NextRequest, NextResponse } from "next/server";
 
 
 export async function GET(req:NextRequest,
-    {params}:{params:Promise<{resumeId:string}>}
+    {params}:{params:Promise<{resumeid?:string, resumeId?:string}>}
 ){ 
      try {
-
         const user = await getcurrentuser();
-
-        const {resumeId}=await params;
-
+        const resolvedParams = await params;
+        const resumeId = resolvedParams.resumeid || resolvedParams.resumeId;
+        const userId = typeof user === 'object' && user !== null ? (user as any).userId : user;
 
         const resume = await resumemodel.findOne({
             _id:resumeId,
-            user_id:user.userId
-
+            user_id:userId
         })
 
         if(!resume){
@@ -45,19 +43,18 @@ export async function GET(req:NextRequest,
 }
 
 export async function PATCH(req:NextRequest,
-    {params}:{params:Promise<{resumeId:string}>}
+    {params}:{params:Promise<{resumeid?:string, resumeId?:string}>}
 ){ 
      try {
-
         const user = await getcurrentuser();
         const body=await req.json();
-        const {resumeId}=await params;
-
+        const resolvedParams = await params;
+        const resumeId = resolvedParams.resumeid || resolvedParams.resumeId;
+        const userId = typeof user === 'object' && user !== null ? (user as any).userId : user;
 
         const updatedresume = await resumemodel.findOneAndUpdate({
             _id:resumeId,
-            user_id:user.userId
-
+            user_id:userId
         },{
             $set:body
         },{
