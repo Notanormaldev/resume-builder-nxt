@@ -11,7 +11,7 @@ interface ATSModalProps {
   onAddSkill: (skill: string) => void;
 }
 
-export default function ATSModal({
+ export default function ATSModal({
   isOpen,
   onClose,
   resumeData,
